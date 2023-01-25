@@ -3,13 +3,15 @@ import { USER_PLACEHOLDER } from '../../utils/constants/auth';
 import {
   FieldSet,
   FormSigninText,
-  FormSignupText,
+  SignupDescription,
   Input,
   InputWrapper,
   SignupButton,
   SignupContainer,
   SignupTitle,
   SignupWrapper,
+  SignupForm,
+  ErrorMessage,
 } from './style';
 
 const Signup = () => {
@@ -18,9 +20,9 @@ const Signup = () => {
   return (
     <SignupContainer>
       <SignupWrapper>
-        <form onSubmit={formik.handleSubmit}>
+        <SignupForm onSubmit={formik.handleSubmit}>
           <SignupTitle>회원가입</SignupTitle>
-          <FormSignupText>Create your Tripend account</FormSignupText>
+          <SignupDescription>Tripend에 오신 것을 환영해요!</SignupDescription>
 
           <FieldSet className="form-el">
             <legend>이름</legend>
@@ -35,7 +37,7 @@ const Signup = () => {
             />
           </FieldSet>
           {formik.touched.userName && formik.errors.userName ? (
-            <div>{formik.errors.userName}</div>
+            <ErrorMessage>{formik.errors.userName}</ErrorMessage>
           ) : null}
 
           <FieldSet className="form-el">
@@ -51,7 +53,7 @@ const Signup = () => {
             />
           </FieldSet>
           {formik.touched.userAge && formik.errors.userAge ? (
-            <div>{formik.errors.userAge}</div>
+            <ErrorMessage>{formik.errors.userAge}</ErrorMessage>
           ) : null}
 
           <FieldSet className="form-el">
@@ -79,7 +81,7 @@ const Signup = () => {
             </InputWrapper>
           </FieldSet>
           {formik.touched.userGender && formik.errors.userGender ? (
-            <div>{formik.errors.userGender}</div>
+            <ErrorMessage>{formik.errors.userGender}</ErrorMessage>
           ) : null}
 
           <FieldSet className="form-el">
@@ -94,7 +96,9 @@ const Signup = () => {
               placeholder={USER_PLACEHOLDER.USER_ID}
             />
           </FieldSet>
-          {formik.touched.userId && formik.errors.userId ? <div>{formik.errors.userId}</div> : null}
+          {formik.touched.userId && formik.errors.userId ? (
+            <ErrorMessage>{formik.errors.userId}</ErrorMessage>
+          ) : null}
 
           <FieldSet className="form-el">
             <legend>비밀번호</legend>
@@ -109,7 +113,7 @@ const Signup = () => {
             />
           </FieldSet>
           {formik.touched.userPassword && formik.errors.userPassword ? (
-            <div>{formik.errors.userPassword}</div>
+            <ErrorMessage>{formik.errors.userPassword}</ErrorMessage>
           ) : null}
 
           <FieldSet className="form-el">
@@ -125,16 +129,16 @@ const Signup = () => {
             />
           </FieldSet>
           {formik.touched.userPasswordConfirm && formik.errors.userPasswordConfirm ? (
-            <div>{formik.errors.userPasswordConfirm}</div>
+            <ErrorMessage>{formik.errors.userPasswordConfirm}</ErrorMessage>
           ) : null}
           <SignupButton type="submit">가입하기</SignupButton>
           <FormSigninText>
-            Are you already a member?{' '}
+            이미 회원이신가요?
             <span onClick={() => navigate('/')} style={{ color: 'red', cursor: 'pointer' }}>
               로그인
             </span>
           </FormSigninText>
-        </form>
+        </SignupForm>
       </SignupWrapper>
     </SignupContainer>
   );
