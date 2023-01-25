@@ -1,6 +1,6 @@
 import { useNewPassWordForm } from '../../hooks/useNewPassWordForm';
 import { USER as AUTH } from '../../utils/constants/auth';
-import { Fieldset, FormButton, FormLogin, LoginContainer, LoginWrapper } from '../Signin/style';
+import { Fieldset, FormButton, FormLogin, LoginWrapper } from '../Signin/style';
 import { FormSettingText, Input, PasswordBlock, PasswordText } from './style';
 
 const UserSettingPassword = () => {

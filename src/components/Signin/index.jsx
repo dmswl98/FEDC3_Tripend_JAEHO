@@ -12,7 +12,6 @@ import {
   FormSignupText,
   Input,
   LoginBlock,
-  LoginContainer,
   LoginTitle,
   LoginWrapper,
 } from './style';
@@ -32,36 +31,38 @@ const Login = () => {
   return (
     <LoginBlock>
       <LoginWrapper>
-        <LoginContainer>
-          <FormLogin onSubmit={handleSubmit}>
-            <LoginTitle>로그인</LoginTitle>
-            <FormLoginText>Login to access your Tripend account</FormLoginText>
+        <FormLogin onSubmit={handleSubmit}>
+          <LoginTitle>로그인</LoginTitle>
+          <FormLoginText>Tripend에 오신 것을 환영해요!</FormLoginText>
 
-            <Fieldset>
-              <legend>이메일</legend>
-              <Input type="text" onChange={handleEmail} />
-            </Fieldset>
+          <Fieldset>
+            <legend>이메일</legend>
+            <Input type="text" onChange={handleEmail} placeholder="이메일을 입력해주세요." />
+          </Fieldset>
 
-            <Fieldset>
-              <legend>비밀번호</legend>
-              <Input type="password" onChange={handlePassword} />
-            </Fieldset>
+          <Fieldset>
+            <legend>비밀번호</legend>
+            <Input
+              type="password"
+              onChange={handlePassword}
+              placeholder="비밀번호를 입력해주세요."
+            />
+          </Fieldset>
 
-            <FormButton type="submit" disabled={!email || !password}>
-              로그인
-            </FormButton>
-            <FormFailedText style={isLoading ? { color: 'red' } : { display: 'none' }}>
-              등록된 계정이 없습니다.
-            </FormFailedText>
+          <FormButton type="submit" disabled={!email || !password}>
+            로그인
+          </FormButton>
+          <FormFailedText style={isLoading ? { color: 'red' } : { display: 'none' }}>
+            등록된 계정이 없습니다.
+          </FormFailedText>
 
-            <FormSignupText>
-              Don't have an account?{' '}
-              <span onClick={handleClickSignUp} style={{ color: 'red', cursor: 'pointer' }}>
-                회원가입
-              </span>
-            </FormSignupText>
-          </FormLogin>
-        </LoginContainer>
+          <FormSignupText>
+            아직 회원이 아니신가요?
+            <span onClick={handleClickSignUp} style={{ color: 'red', cursor: 'pointer' }}>
+              회원가입
+            </span>
+          </FormSignupText>
+        </FormLogin>
       </LoginWrapper>
     </LoginBlock>
   );
