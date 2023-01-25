@@ -32,13 +32,9 @@ body {
 a {
   text-decoration: none;
   color: inherit;
-
 }
 input {
   border: 0;
-}
-input:not(.usersSearchBar) {
-  font-size: var(--font-input-size);
 }
 input::placeholder {
   color: var(--font-input-color);
